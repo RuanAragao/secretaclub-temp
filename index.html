@@ -61,7 +61,44 @@
 
         .hero {
             text-align: center;
-            padding: 4rem 0;
+            /* padding: 4rem 0; */
+            height: 100%;
+            display: flex;
+        }
+
+        .hero .split-screen {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero .split-screen .left {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('./featured.jpg');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+
+        .hero .split-screen img {
+            position: relative;
+            height: 100vh;
+            /* border-radius: 15px; */
+            /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+        }
+
+        .hero .split-screen .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
         }
 
         h1 {
@@ -81,7 +118,6 @@
         .cta-form {
             display: grid;
             grid-template-rows: 1fr 1fr;
-            gap: 1rem;
             justify-content: center;
             margin: 2rem 0;
         }
@@ -102,6 +138,7 @@
             border-radius: 50px;
             font-weight: 500;
             cursor: pointer;
+            margin-top: 1rem;
             transition: transform 0.3s ease;
         }
 
@@ -127,8 +164,7 @@
         footer {
             text-align: center;
             padding: 2rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.1);
         }
 
         .social-links {
@@ -179,6 +215,13 @@
             text-decoration: none;
         }
 
+        @media screen and (max-width: 1200px) {
+            .hero .split-screen {
+                grid-template-columns: 1fr 2fr;
+            }
+            
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -194,42 +237,95 @@
                 min-width: unset;
             }
         }
+
+        @media (max-width: 600px) {
+            .hero .split-screen {
+                display: block;
+            }
+
+            .hero .split-screen .left {
+                display: none;
+            }
+
+            .hero .split-screen img {
+                height: 100%;
+                width: 100%;
+            }
+
+            .hero .split-screen .right {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .cta-form {
+                margin: 1rem 0;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-item {
+                padding: 1rem;
+            }
+
+            footer {
+                padding: 1rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="">
         <section class="hero">
-            <h1>Monetize seu conteúdo com total liberdade</h1>
-            <p class="description">A plataforma definitiva para criadores que valorizam privacidade, controle e conexões autênticas com seu público.</p>
-            
-            <form class="cta-form" id="leadForm">
-                <input type="email" name="email" placeholder="Digite seu melhor e-mail" required>
-                <div class="consent-term">
-                    <input type="checkbox" id="consent" required>
-                    <label for="consent">
-                        Ao se cadastrar, você concorda em receber e-mails de contato e atualizações da Secreta Club.
-                    </label>
+            <div class="split-screen">
+                <div class="left">
                 </div>
-                <button type="submit" class="btn">Quero saber mais</button>
-            </form>
+                <div class="right">
+                    <h1>Monetize seu conteúdo com total liberdade</h1>
+                    <p class="description">A plataforma definitiva para criadores que valorizam privacidade, controle e conexões autênticas com seu público.</p>
+                    
+                    <form class="cta-form" id="leadForm">
+                        <input type="email" name="email" placeholder="Digite seu melhor e-mail" required>
+                        <div class="consent-term">
+                            <input type="checkbox" id="consent" required>
+                            <label for="consent">
+                                Ao se cadastrar, você concorda em receber e-mails de contato e atualizações da Secreta Club.
+                            </label>
+                        </div>
+                        <button type="submit" class="btn">Quero saber mais</button>
+                    </form>
 
-            <div class="success-message" id="successMessage">
-                <h3>🎉 Cadastro realizado com sucesso!</h3>
-                <p>Em breve você receberá novidades exclusivas em seu e-mail</p>
-            </div>
+                    <div class="success-message" id="successMessage">
+                        <h3>🎉 Cadastro realizado com sucesso!</h3>
+                        <p>Em breve você receberá novidades exclusivas em seu e-mail</p>
+                    </div>
 
-            <div class="benefits">
-                <div class="benefit-item">
-                    <h3>🎁 Acesso Antecipado</h3>
-                    <p>Seja um dos primeiros a experimentar</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>🔒 Privacidade Total</h3>
-                    <p>Controle completo sobre seu conteúdo</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>💎 Benefícios Exclusivos</h3>
-                    <p>Vantagens especiais para membros fundadores</p>
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <h3>🎁 Acesso Antecipado</h3>
+                            <p>Seja um dos primeiros a experimentar</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h3>🔒 Privacidade Total</h3>
+                            <p>Controle completo sobre seu conteúdo</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h3>💎 Benefícios Exclusivos</h3>
+                            <p>Vantagens especiais para membros fundadores</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
