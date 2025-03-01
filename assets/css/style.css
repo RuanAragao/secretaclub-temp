@@ -1,0 +1,347 @@
+:root {
+  --purple-primary: #6A35F1;
+  --purple-secondary: #4A148C;
+  --accent-color: #FF4081;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.to-gray-600 {
+  --tw-gradient-to: #4b5563;
+}
+
+.from-gray-200 {
+  --tw-gradient-from: #e5e7eb var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(229 231 235 / 0.2) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+}
+
+body {
+  /* background: linear-gradient(135deg, var(--purple-primary), var(--purple-secondary)); */
+  background: radial-gradient(circle, rgb(148, 7, 179), rgb(0, 0, 0));
+  color: white;
+  line-height: 1.6;
+  min-height: 100vh;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.bg-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero {
+  text-align: center;
+  /* padding: 4rem 0; */
+  height: 100%;
+  display: flex;
+}
+
+.hero .split-screen {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero .split-screen .left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/featured.jpg');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.hero .split-screen img {
+  position: relative;
+  height: 100vh;
+  /* border-radius: 15px; */
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+}
+
+.hero .split-screen .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1.25rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  font-weight: 300;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+input[type="email"] {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  min-width: 350px;
+  font-size: 1rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.g-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: inline-block;
+  fill: currentColor;
+  line-height: 1;
+}
+
+.social-links a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.social-links .g-icon {
+  vertical-align: top;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.success-message {
+  display: none;
+  background: rgba(0, 255, 0, 0.42);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 500px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.consent-term {
+  margin: 1rem 0;
+  font-size: 0.7rem;
+  display: flex;
+  gap: 0.5rem;
+  text-align: left;
+  justify-content: center;
+  align-items: start;
+}
+
+.consent-term input {
+  width: 18px;
+  height: 18px;
+}
+
+.consent-term a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .hero .split-screen {
+      grid-template-columns: 1fr 2fr;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2.5rem;
+  }
+
+  .cta-form {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  input[type="email"] {
+      width: 100%;
+      min-width: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero .split-screen {
+      display: block;
+  }
+
+  .hero .split-screen .left {
+      display: none;
+  }
+
+  .hero .split-screen img {
+      height: 100%;
+      width: 100%;
+  }
+
+  .hero .split-screen .right {
+      padding: 2rem;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .description {
+      font-size: 1rem;
+  }
+
+  .cta-form {
+      margin: 1rem 0;
+  }
+
+  .benefits {
+      grid-template-columns: 1fr;
+  }
+
+  .benefit-item {
+      padding: 1rem;
+  }
+
+  footer {
+      padding: 1rem;
+  }
+
+  .social-links {
+      flex-direction: column;
+  }
+}

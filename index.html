@@ -26,265 +26,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     
-    <style>
-        :root {
-            --purple-primary: #6A35F1;
-            --purple-secondary: #4A148C;
-            --accent-color: #FF4081;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, var(--purple-primary), var(--purple-secondary));
-            color: white;
-            line-height: 1.6;
-            min-height: 100vh;
-            opacity: 0;
-            animation: fadeIn 1s ease-in forwards;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero {
-            text-align: center;
-            /* padding: 4rem 0; */
-            height: 100%;
-            display: flex;
-        }
-
-        .hero .split-screen {
-            position: relative;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .hero .split-screen .left {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('./featured.jpg');
-            background-size: cover;
-            background-position: top;
-            background-repeat: no-repeat;
-            height: 100%;
-        }
-
-        .hero .split-screen img {
-            position: relative;
-            height: 100vh;
-            /* border-radius: 15px; */
-            /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
-        }
-
-        .hero .split-screen .right {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .description {
-            font-size: 1.25rem;
-            margin: 2rem auto;
-            max-width: 600px;
-            font-weight: 300;
-        }
-
-        .cta-form {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        input[type="email"] {
-            padding: 1rem;
-            border: none;
-            border-radius: 50px;
-            min-width: 350px;
-            font-size: 1rem;
-        }
-
-        .btn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 500;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .benefit-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin: 1.5rem 0;
-        }
-
-        .social-links a {
-            color: white;
-        }
-
-        .success-message {
-            display: none;
-            background: rgba(0, 255, 0, 0.42);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 2rem auto;
-            max-width: 500px;
-            text-align: center;
-            backdrop-filter: blur(5px);
-            animation: slideUp 0.5s ease-out;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .consent-term {
-            margin: 1rem 0;
-            font-size: 0.7rem;
-            display: flex;
-            gap: 0.5rem;
-            text-align: left;
-            justify-content: center;
-            align-items: start;
-        }
-
-        .consent-term input {
-            width: 18px;
-            height: 18px;
-        }
-
-        .consent-term a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        @media screen and (max-width: 1200px) {
-            .hero .split-screen {
-                grid-template-columns: 1fr 2fr;
-            }
-            
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .cta-form {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            input[type="email"] {
-                width: 100%;
-                min-width: unset;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero .split-screen {
-                display: block;
-            }
-
-            .hero .split-screen .left {
-                display: none;
-            }
-
-            .hero .split-screen img {
-                height: 100%;
-                width: 100%;
-            }
-
-            .hero .split-screen .right {
-                padding: 2rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .description {
-                font-size: 1rem;
-            }
-
-            .cta-form {
-                margin: 1rem 0;
-            }
-
-            .benefits {
-                grid-template-columns: 1fr;
-            }
-
-            .benefit-item {
-                padding: 1rem;
-            }
-
-            footer {
-                padding: 1rem;
-            }
-
-            .social-links {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="">
@@ -293,11 +36,11 @@
                 <div class="left">
                 </div>
                 <div class="right">
-                    <h1>Monetize seu conteúdo com total liberdade</h1>
-                    <p class="description">A plataforma definitiva para criadores que valorizam privacidade, controle e conexões autênticas com seu público.</p>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-br from-gray-200 to-gray-600">Monetize seu conteúdo com total liberdade</h1>
+                    <p class="description text-gray-300">A plataforma definitiva para criadores que valorizam privacidade, controle e conexões autênticas com seu público.</p>
                     
                     <form class="cta-form" id="leadForm">
-                        <input type="email" name="email" placeholder="Digite seu melhor e-mail" required>
+                        <input class="cta-form__email" type="email" name="email" placeholder="Digite seu melhor e-mail" required>
                         <div class="consent-term">
                             <input type="checkbox" id="consent" required>
                             <label for="consent">
@@ -310,6 +53,10 @@
                     <div class="success-message" id="successMessage">
                         <h3>🎉 Cadastro realizado com sucesso!</h3>
                         <p>Em breve você receberá novidades exclusivas em seu e-mail</p>
+                    </div>
+
+                    <div class="limited-availability">
+                        <p>🚨 <strong>Vagas iniciais limitadas!</strong> Junte-se à revolução dos criadores exclusivos</p>
                     </div>
 
                     <div class="benefits">
@@ -333,9 +80,22 @@
 
     <footer>
         <div class="social-links">
-            <a href="https://www.instagram.com/secretaclub/" target="_blank">Instagram</a>
-            <a href="https://x.com/OficialSecreta" target="_blank">X</a>
-            <a href="mailto:ola@secreta.club">E-mail</a>
+            <a href="https://www.instagram.com/secretaclub/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor" height="1.5rem" width="1.5rem">
+                    <path d="M20.947 8.305a6.53 6.53 0 00-.419-2.216 4.61 4.61 0 00-2.633-2.633 6.606 6.606 0 00-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.606 6.606 0 00-2.185.42 4.607 4.607 0 00-2.633 2.633 6.554 6.554 0 00-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.61 4.61 0 002.634 2.632 6.584 6.584 0 002.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.59 6.59 0 002.186-.419 4.615 4.615 0 002.633-2.633c.263-.7.404-1.438.419-2.187.043-.962.056-1.267.056-3.71-.002-2.442-.002-2.752-.058-3.709zm-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 010 9.246zm4.807-8.339a1.077 1.077 0 01-1.078-1.078 1.077 1.077 0 112.155 0c0 .596-.482 1.078-1.077 1.078z" />
+                    <circle cx="11.994" cy="11.979" r="3.003" />
+                </svg>
+            </a>
+            <a href="https://x.com/OficialSecreta" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor" height="1.5rem" width="1.5rem">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+            </a>
+            <a href="mailto:ola@secreta.club">
+                <svg data-name="1-Email" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="1.5rem" width="1.5rem">
+                    <path d="M29 4H3a3 3 0 0 0-3 3v18a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-.72 2L16 14.77 3.72 6zM30 25a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.23l13.42 9.58a1 1 0 0 0 1.16 0L30 7.23z"/>
+                </svg>
+            </a>
         </div>
         <p>© 2025 Secreta Club</p>
     </footer>
